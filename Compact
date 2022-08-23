@@ -314,6 +314,7 @@ do
                     title = "Save",
                     desc = "Button to save the config into: workspace/"..folder,
                     callback = function()
+                        print("nah")
                         local toEncode = {}
                         for tab,v in pairs(self.values) do
                             for panelNum,v in pairs(v) do
@@ -336,9 +337,6 @@ do
                                 end
                             end
                         end
-
-                        self.values.Configs = nil
-
                         writefile(folder.."/"..configName.."."..fileExtension, game:GetService("HttpService"):JSONEncode(toEncode))
                         updateList()
                     end
