@@ -338,7 +338,7 @@ do
                             end
                         end
                         print(folder,configName)
-                        writefile(folder.."/"..configName.."."..json, game:GetService("HttpService"):JSONEncode(toEncode))
+                        writefile(folder.."/"..configName.."."..game:GetService("HttpService"):JSONEncode(toEncode))
                         updateList()
                     end
                 })
