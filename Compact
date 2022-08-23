@@ -1708,8 +1708,6 @@ do
     end
 end
 
-return library
-
 for _,v in next, game.CoreGui:GetDescendants() do 
     if v.Name == "TopBarTitle" then 
         if v.TextColor3 ~= Color3.fromRGB(130,130,180) then 
@@ -1719,3 +1717,6 @@ for _,v in next, game.CoreGui:GetDescendants() do
         end
     end
 end
+
+return library
+
