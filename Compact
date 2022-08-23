@@ -80,7 +80,7 @@ local theme = getgenv().theme or {
 
     NotSelectedTab = Color3.fromRGB(70, 70, 100), --> shows on all OTHER tabs
 
-    TextColor = Color3.fromRGB(255,255,255),
+    TextColor = Color3.fromRGB(230,230,230),
     SubTextColor = Color3.fromRGB(230,230,230),
 
 
@@ -533,7 +533,7 @@ do
                 TextColor3 = theme.TextColor,
                 TextSize = 14,
                 Font = Enum.Font.GothamMedium,
-                Position = UDim2.new(0, 12, 0, 8),
+                Position = UDim2.new(0, 24, 0, 16),
                 Name = "TopBarTitleText"
             }),
             util.new("TextLabel",  {
@@ -1709,3 +1709,4 @@ do
 end
 
 return library
+0
