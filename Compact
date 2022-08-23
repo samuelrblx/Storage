@@ -1683,7 +1683,7 @@ do
                     NumberSequenceKeypoint.new(1  , 0.5),
                 }),
                 Rotation = 90
-            })·ty
+            })
         })
         
         --//Basic connectionss
