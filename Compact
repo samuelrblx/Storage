@@ -273,21 +273,23 @@ do
 
     function library:AddConfigTab(folder, fileExtension)
         if not isfolder(folder) then makefolder(folder) end
-
-        local updateList
-        local function loadConfig(config)
-            for _,tabTable in pairs(self.tabs) do
-                local tab = tabTable.title
-                for panelNum,panelTable in pairs(tabTable.panels) do
-                    for seperator, seperatorTable in pairs(panelTable.seperators) do
-                        for element,setElement in pairs(seperatorTable) do
-                            --got setElement
-                            if config[tab] then
-                                if config[tab][panelNum] then
-                                    if config[tab][panelNum][seperator] then
-                                        local setTo = config[tab][panelNum][seperator][element]
-                                        if setTo ~= nil then
-                                            setElement(setTo)
+        
+        pcall(function()
+            local updateList
+            local function loadConfig(config)
+                for _,tabTable in pairs(self.tabs) do
+                    local tab = tabTable.title
+                    for panelNum,panelTable in pairs(tabTable.panels) do
+                        for seperator, seperatorTable in pairs(panelTable.seperators) do
+                            for element,setElement in pairs(seperatorTable) do
+                                --got setElement
+                                if config[tab] then
+                                    if config[tab][panelNum] then
+                                        if config[tab][panelNum][seperator] then
+                                            local setTo = config[tab][panelNum][seperator][element]
+                                            if setTo ~= nil then
+                                                setElement(setTo)
+                                            end
                                         end
                                     end
                                 end
@@ -296,14 +298,14 @@ do
                     end
                 end
             end
-        end
+        end)
 
         local PanelOne, PanelTwo = self:AddTab("Configs", "Load settings instantly") do
             local Section = PanelOne:AddSeperator("Save configs") do
                 local configName = "Name"
                 Section:AddTextInput({
                     title = "Config Name",
-                    desc = "Enter the name to save your config under",
+
                     placeholder = configName,
                     callback = function(t)
                         configName = t
@@ -312,7 +314,6 @@ do
 
                 Section:AddButton({
                     title = "Save",
-                    desc = "Button to save the config into: workspace/"..folder,
                     callback = function()
                         local toEncode = {}
                         for tab,v in pairs(self.values) do
@@ -338,7 +339,6 @@ do
                         end
 
                         self.values.Configs = nil
-                        print(type(folder), type(configName), type(fileExtension))
                         writefile(folder.."/"..configName.."."..fileExtension, game:GetService("HttpService"):JSONEncode(toEncode))
                         updateList()
                     end
@@ -349,7 +349,7 @@ do
                 --//Refresh button
                 PanelTwo:AddButton({
                     title = "Refresh",
-                    desc = "Button to refresh the config list from: workspace/"..folder,
+                   
                     callback = function() updateList() end
                 })
 
