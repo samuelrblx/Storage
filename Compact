@@ -337,9 +337,8 @@ do
                                 end
                             end
                         end
-
+                        self.values.Configs = nil
                         writefile(folder.."/"..configName.."."..fileExtension, game:GetService("HttpService"):JSONEncode(toEncode))
-                        updateList()
                     end
                 })
             end
