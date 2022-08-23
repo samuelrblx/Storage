@@ -271,7 +271,7 @@ do
         return unpack(newTab.panels)
     end
 
-    function library:AddConfigTab(folder, fileExtension)
+    function library:AddConfigTab(folder)
         if not isfolder(folder) then makefolder(folder) end
 
         local updateList
@@ -337,7 +337,8 @@ do
                                 end
                             end
                         end
-                        writefile(folder.."/"..configName.."."..fileExtension, game:GetService("HttpService"):JSONEncode(toEncode))
+                        print(folder,configName)
+                        writefile(folder.."/"..configName.."."..json, game:GetService("HttpService"):JSONEncode(toEncode))
                         updateList()
                     end
                 })
@@ -415,7 +416,7 @@ do
                         local file = string.split(file, "\\")[2]
                         local name, extension = unpack(string.split(file, "."))
 
-                        if extension == fileExtension then
+                        if extension then
                             --//Got config
                             local config = ConfigTemplate:Clone()
                             table.insert(configElements, config)
