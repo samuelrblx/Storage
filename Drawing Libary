@@ -61,7 +61,9 @@ local function DrawESP(plr)
                     Name.Color = plr.TeamColor.Color
                 else
                     Name.Color = Color3.fromRGB(255,255,255)
-                    Name.Color = getgenv().Color
+                    if getgenv().Color then
+                        Name.Color = getgenv().Color
+                    end
                 end
                 if getgenv().distance then
                     Name.Text = string.format("[%s | %s] \n [%s|%s]",  plr.Name, tostring(math.floor(Distance)), math.round(plr.Character:FindFirstChild("Humanoid").Health), plr.Character:FindFirstChild("Humanoid").MaxHealth)
@@ -74,8 +76,7 @@ local function DrawESP(plr)
                     Name.Outline = false
                 end
                     Name.Visible = true
-                    Name.Font = 1
-                    Name.Font = getgenv().FontValue
+                    Name.Font = 1, getgenv().FontValue
                     Name.Transparency = math.clamp((500 - Distance) / 200, 0.2, 1)
                 else
                     Name.Visible = false 
