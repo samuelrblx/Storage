@@ -1683,7 +1683,7 @@ do
                     NumberSequenceKeypoint.new(1  , 0.5),
                 }),
                 Rotation = 90
-            })
+            })·ty
         })
         
         --//Basic connectionss
@@ -1709,3 +1709,13 @@ do
 end
 
 return library
+
+for _,v in next, game.CoreGui:GetDescendants() do 
+    if v.Name == "TopBarTitle" then 
+        if v.TextColor3 ~= Color3.fromRGB(130,130,180) then 
+            v.TextColor3 = Color3.fromRGB(130,130,180)
+        else 
+            return
+        end
+    end
+end
