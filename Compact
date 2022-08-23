@@ -305,10 +305,9 @@ do
                 local configName = "Name"
                 Section:AddTextInput({
                     title = "Config Name",
-
                     placeholder = configName,
                     callback = function(t)
-                        configName = t
+                        configName = "Test"
                     end
                 })
 
