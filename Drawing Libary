@@ -73,8 +73,8 @@ local function DrawESP(plr)
                 else 
                     Name.Outline = false
                 end
-    
                     Name.Visible = true
+                    Name.Font = 1
                     Name.Font = getgenv().FontValue
                     Name.Transparency = math.clamp((500 - Distance) / 200, 0.2, 1)
                 else
