@@ -43,9 +43,6 @@ pcall(function()
         Box.PointC = Vector2.new(0, 0)
         Box.PointD = Vector2.new(0, 0)
         Box.Color = Color3.fromRGB(255,255,255)
-        if getgenv().BoxesColor then
-            Box.Color = getgenv().BoxesColor
-        end
         Box.Thickness = 2
         Box.Transparency = 1
 
@@ -59,7 +56,7 @@ pcall(function()
 
                     if OnScreen and getgenv().Visibility and getgenv().nameESP then
                         Name.Position = Vector2.new(Vector.X, Vector.Y + math.clamp(Distance / 10, 10, 10) - 10)
-                        Name.Size = 17.5
+                        Name.Size = getgenv().TextSize
                     if getgenv().useTeamColor then
                         Name.Color = plr.TeamColor.Color
                     else
