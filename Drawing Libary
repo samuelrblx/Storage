@@ -42,10 +42,7 @@ pcall(function()
         Box.PointB = Vector2.new(0, 0)
         Box.PointC = Vector2.new(0, 0)
         Box.PointD = Vector2.new(0, 0)
-        if getgenv().ColorBoxes then
-            Box.Color = getgenv().ColorBoxes
-        end
-        Box.Color = Color3.fromRGB(255, 255, 255)
+        Box.Color = getgenv().ColorBoxes
         Box.Thickness = 2
         Box.Transparency = 1
 
