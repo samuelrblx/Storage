@@ -1708,15 +1708,5 @@ do
     end
 end
 
-for _,v in next, game.CoreGui:GetDescendants() do 
-    if v.Name == "TopBarTitle" then 
-        if v.TextColor3 ~= Color3.fromRGB(130,130,180) then 
-            v.TextColor3 = Color3.fromRGB(130,130,180)
-        else 
-            return
-        end
-    end
-end
-
 return library
 
