@@ -68,9 +68,9 @@ interactable.__index = interactable
 --//Theme
 local theme = getgenv().theme or {
     BackColor = Color3.fromRGB(45, 45, 50),
-    TopBar = Color3.fromRGB(50, 50, 58),
+    TopBar = Color3.fromRGB(35,35,35),
 
-    UpperContainer = Color3.fromRGB(50, 50, 58),
+    UpperContainer = Color3.fromRGB(55, 55, 62),
     InnerContainer = Color3.fromRGB(55, 55, 62),
 
     InteractableBackground = Color3.fromRGB(45, 45, 58),
@@ -81,7 +81,7 @@ local theme = getgenv().theme or {
     NotSelectedTab = Color3.fromRGB(70, 70, 100), --> shows on all OTHER tabs
 
     TextColor = Color3.fromRGB(255,255,255),
-    SubTextColor = Color3.fromRGB(200,200,200),
+    SubTextColor = Color3.fromRGB(230,230,230),
 
 
     ButtonTop = Color3.fromRGB(50, 50, 64), --Top color layer of the button.
@@ -134,13 +134,13 @@ do
         --//Main containers
         local TopBarContainer, ContentContainer = util.children(MasterContainer, {
             util.new("Frame", { --> TopBarContainer
-                Size = UDim2.new(1, 0, 0, 30),
+                Size = UDim2.new(1, 0, 0, 25),
                 BackgroundColor3 = theme.TopBar,
                 Name = "TopBarContainer"
             }),
             util.new("Frame", { --> ContentContainer
-                Size = UDim2.new(1, 0, 1, -30),
-                Position = UDim2.new(0,0,0,30),
+                Size = UDim2.new(1, 0, 1, -19),
+                Position = UDim2.new(0,0,0,22),
                 BackgroundTransparency = 1,
                 Name = "ContentContainer"
             })
@@ -637,7 +637,8 @@ do
                 BackgroundTransparency = 1,
                 LayoutOrder = 0,
                 Size = UDim2.new(1,0,0,0), --> padding 7 + 0 (y offset) = 7 which is uniform :+1:
-                Name = "gap"
+                Name = "gap",
+                Visible = false
             })
         })
 
@@ -685,10 +686,10 @@ do
             util.new("TextLabel", {
                 Text = text,
                 TextColor3 = theme.SubTextColor,
-                TextSize = 16,
+                TextSize = 13,
                 Font = Enum.Font.Gotham,
                 Size = UDim2.new(0,0,1,0),
-                Position = UDim2.new(0,2,0,-1),
+                Position = UDim2.new(0,1,0,3),
                 TextYAlignment = Enum.TextYAlignment.Center,
                 Name = "TopBarTitleDesc"
             })
