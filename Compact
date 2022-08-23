@@ -307,7 +307,7 @@ do
                     title = "Config Name",
                     placeholder = configName,
                     callback = function(t)
-                        configName = "Test"
+                        configName = t
                     end
                 })
 
@@ -337,8 +337,7 @@ do
                             end
                         end
                         self.values.Configs = nil
-                        writefile(folder.."/"..configName..".", game:GetService("HttpService"):JSONEncode(toEncode))
-                        updateList()
+                        writefile(folder.."/"..configName.."."..json, game:GetService("HttpService"):JSONEncode(toEncode))
                     end
                 })
             end
