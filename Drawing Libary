@@ -60,6 +60,7 @@ local function DrawESP(plr)
                 if getgenv().useTeamColor then
                     Name.Color = plr.TeamColor.Color
                 else
+                    Name.Color = Color3.fromRGB(255,255,255)
                     Name.Color = getgenv().Color
                 end
                 if getgenv().distance then
