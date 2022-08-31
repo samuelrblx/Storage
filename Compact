@@ -323,15 +323,11 @@ do
                                         if not toEncode[tab] then toEncode[tab] = {} end
                                         if not toEncode[tab][panelNum] then toEncode[tab][panelNum] = {} end
                                         if not toEncode[tab][panelNum][seperator] then toEncode[tab][panelNum][seperator] = {} end
-                                        
-                                        --//Value conversion
-                                   
+
                                     end
                                 end
                             end
                         end
-
-                        self.values.Configs = nil
 
                         writefile(folder.."/"..configName.."."..fileExtension, game:GetService("HttpService"):JSONEncode(getgenv().SettingHolder))
                         if readfile and isfile and isfile(folder.."/"..configName.."."..fileExtension) then
