@@ -339,7 +339,7 @@ do
 
                         self.values.Configs = nil
 
-                        writefile(folder.."/"..configName.."."..fileExtension, game:GetService("HttpService"):JSONEncode(toEncode))
+                        writefile(folder.."/"..configName.."."..fileExtension, game:GetService("HttpService"):JSONEncode(getgenv().SettingHolder))
                         if readfile and isfile and isfile(folder.."/"..configName.."."..fileExtension) then
                             getgenv().SettingHolder = game:GetService("HttpService"):JSONDecode(readfile(folder.."/"..configName.."."..fileExtension))
                         end
