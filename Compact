@@ -325,13 +325,7 @@ do
                                         if not toEncode[tab][panelNum][seperator] then toEncode[tab][panelNum][seperator] = {} end
                                         
                                         --//Value conversion
-                                        local valuee = value
-                                        if typeof(value) == "Color3" then
-                                            local a,b,c = Color3.toHSV(value)
-                                            valuee = {a,b,c}
-                                        end
-
-                                        toEncode[tab][panelNum][seperator][element] = valuee
+                                   
                                     end
                                 end
                             end
