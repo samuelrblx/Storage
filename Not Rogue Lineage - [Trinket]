@@ -1,0 +1,10 @@
+  local v1 = game:GetService("Workspace").Trinkets:GetChildren()
+  local v2 = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+
+  for _,v in next, v1 do 
+      if v:IsA("MeshPart") or v:IsA("Part") or v:IsA("UnionOperation") then
+          if (v.Position - v2.Position).Magnitude < getgenv().SettingHolder.pickuprange then
+              fireclickdetector(v.ClickPart.ClickDetector)
+          end
+      end
+  end
