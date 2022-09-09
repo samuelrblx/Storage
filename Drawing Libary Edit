@@ -83,15 +83,6 @@ pcall(function()
                                 end
                             end
                         end)
-                    elseif getgenv().distance == true then 
-                            pcall(function()
-                            for _,s in next, game.Players:GetPlayers() do 
-                                if s:IsA("Tool") and s.Parent == s.Character then
-                                    Name.Text = string.format("[%s] [%s] \n [%s/%s] \n [%s]",  plr.Name, tostring(math.floor(Distance)), math.round(plr.Character:FindFirstChild("Humanoid").Health), plr.Character:FindFirstChild("Humanoid").MaxHealth, s.Name)
-                                end
-                            end
-                        end)
-                        end
                     else 
                         Name.Text = string.format("[%s] [%s/%s]",  plr.Name, math.round(plr.Character:FindFirstChild("Humanoid").Health), plr.Character:FindFirstChild("Humanoid").MaxHealth)    
                     end
