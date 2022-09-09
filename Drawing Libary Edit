@@ -76,11 +76,13 @@ pcall(function()
                         Name.Text = string.format("[%s] [%s/%s]",  plr.Name, math.round(plr.Character:FindFirstChild("Humanoid").Health), plr.Character:FindFirstChild("Humanoid").MaxHealth)
                     end
                     if getgenv().intent then 
-                        for _,s in next, game.Players:GetPlayers() do 
-                            if s.Character.Head:FindFirstChild("IntentBillBoard") then 
-                                Name.Text = string.format("[%s] [%s] \n [%s/%s] \n [%s]",  plr.Name, tostring(math.floor(Distance)), math.round(plr.Character:FindFirstChild("Humanoid").Health), plr.Character:FindFirstChild("Humanoid").MaxHealth, s.Text)
+                        pcall(function()
+                            for _,s in next, game.Players:GetPlayers() do 
+                                if s.Character.Head:FindFirstChild("IntentBillBoard") then 
+                                    Name.Text = string.format("[%s] [%s] \n [%s/%s] \n [%s]",  plr.Name, tostring(math.floor(Distance)), math.round(plr.Character:FindFirstChild("Humanoid").Health), plr.Character:FindFirstChild("Humanoid").MaxHealth, s.Character.Head:FindFirstChild("IntentBillBoard").Text)
+                                end
                             end
-                        end
+                        end)
                     end
                     if getgenv().outline then 
                         Name.Outline = true
