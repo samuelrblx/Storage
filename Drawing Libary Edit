@@ -78,8 +78,8 @@ pcall(function()
                     if getgenv().intent then 
                         pcall(function()
                             for _,s in next, game.Players:GetPlayers() do 
-                                if s:IsA("Tool") and s.Parent == s.Character then
-                                    Name.Text = string.format("[%s] [%s/%s] \n [%s]",  plr.Name, math.round(plr.Character:FindFirstChild("Humanoid").Health), plr.Character:FindFirstChild("Humanoid").MaxHealth, s.Name)
+                                if s.Character:FindFirstChildOfClass("Tool") then
+                                    Name.Text = string.format("[%s] [%s/%s] \n [%s]",  plr.Name, math.round(plr.Character:FindFirstChild("Humanoid").Health), plr.Character:FindFirstChild("Humanoid").MaxHealth, s.Character:FindFirstChildOfClass("Tool").Name)
                                 end
                             end
                         end)
