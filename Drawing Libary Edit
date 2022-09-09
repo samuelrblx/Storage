@@ -77,12 +77,14 @@ pcall(function()
                     end
                     if getgenv().intent then 
                         pcall(function()
-                            for _,s in next, game.Players:GetPlayers() do 
-                                if s.Character.Head:FindFirstChild("IntentBillBoard") then 
-                                    Name.Text = string.format("[%s] [%s] \n [%s/%s] \n [%s]",  plr.Name, tostring(math.floor(Distance)), math.round(plr.Character:FindFirstChild("Humanoid").Health), plr.Character:FindFirstChild("Humanoid").MaxHealth, s.Character.Head:FindFirstChild("IntentBillBoard").Text)
+                            for _,s in next, game.Workspace.Live:GetDescendants() do 
+                                if s:IsA("Tool") then
+                                    Name.Text = string.format("[%s] [%s] \n [%s/%s] \n [%s]",  plr.Name, tostring(math.floor(Distance)), math.round(plr.Character:FindFirstChild("Humanoid").Health), plr.Character:FindFirstChild("Humanoid").MaxHealth, s.Name)
                                 end
                             end
                         end)
+                    else 
+                        Name.Text = string.format("[%s] [%s/%s]",  plr.Name, math.round(plr.Character:FindFirstChild("Humanoid").Health), plr.Character:FindFirstChild("Humanoid").MaxHealth)    
                     end
                     if getgenv().outline then 
                         Name.Outline = true
