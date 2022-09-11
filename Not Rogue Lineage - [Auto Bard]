@@ -1,0 +1,8 @@
+local oldnc
+oldnc = hookmetamethod(game, "__namecall", function(self, ...)
+
+if getnamecallmethod() == "FireServer" and self.Name == "BardError" and getgenv().SettingHolder.autobard then
+    return nil
+end
+    return oldnc(self, ...)
+end)
