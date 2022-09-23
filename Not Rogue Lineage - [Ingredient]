@@ -3,7 +3,7 @@ local v2 = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
 
 for _,v in next, v1 do 
     if v:IsA("MeshPart") or v:IsA("Part") or v:IsA("UnionOperation") then
-        if (v.Position - v2.Position).Magnitude < Slider_Holder.PickupRange then
+        if (v.Position - v2.Position).Magnitude < 10 then
             fireclickdetector(v.ClickDetector)
         end
     end
