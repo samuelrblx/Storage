@@ -1,0 +1,7 @@
+local oldnc 
+oldnc = hookmetamethod(game, "__index", function(self,c)
+    if tostring(self) == "CurrentAmmo" and c == 'Value' and getgenv().toggle7 then 
+        return math.huge
+    end
+    return oldnc(self,c)
+end)
