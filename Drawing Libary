@@ -43,8 +43,8 @@ pcall(function()
         Box.PointC = Vector2.new(0, 0)
         Box.PointD = Vector2.new(0, 0)
         Box.Color = Color3.fromRGB(255,255,255)
-        Box.Thickness = 2
-        Box.Transparency = 1
+        Box.Thickness = 1
+        Box.Transparency = 0.7
 
 
         local function Update()
@@ -70,9 +70,9 @@ pcall(function()
                         end
                     end
                     if getgenv().distance then
-                        Name.Text = string.format("[%s] [%s] \n [%s/%s]",  plr.Name, tostring(math.floor(Distance)), math.round(plr.Character:FindFirstChild("Humanoid").Health), plr.Character:FindFirstChild("Humanoid").MaxHealth)
+                        Name.Text = string.format("%s %s \n %s".. " %",  plr.Name, tostring(math.floor(Distance)), math.round(plr.Character:FindFirstChild("Humanoid").Health))
                     else
-                        Name.Text = string.format("[%s] [%s/%s]",  plr.Name, math.round(plr.Character:FindFirstChild("Humanoid").Health), plr.Character:FindFirstChild("Humanoid").MaxHealth)
+                        Name.Text = string.format("%s \n %s".. " %",  plr.Name, math.round(plr.Character:FindFirstChild("Humanoid").Health))
                     end
                     if getgenv().outline then 
                         Name.Outline = true
@@ -99,10 +99,10 @@ pcall(function()
                         if getgenv().useTeamColor then
                             Box.Color = plr.TeamColor.Color
                         else
-                            Box.Color = Color3.fromRGB(255,255,255)
+                            Box.Color = getgenv().Color
                         end
 
-                        Box.Thickness = math.clamp(3 - (Distance / 100), 0, 3)
+                        Box.Thickness = math.clamp(1 - (Distance / 100), 0, 1)
                         Box.Transparency = math.clamp((500 - Distance) / 200, 0.2, 1)
                         Box.Visible = true
                     else
@@ -128,19 +128,5 @@ pcall(function()
 
     game:GetService("Players").PlayerAdded:Connect(function(v)
         DrawESP(v)
-    end)
-
-
-    UserInputService.InputBegan:Connect(function(Input, GP)
-        if not GP and Input.KeyCode == Enum.KeyCode.Delete then
-            getgenv().Visibility = not getgenv().Visibility
-        end 
-
-        if not GP and Input.KeyCode == Enum.KeyCode.End then
-            CycleFont()
-        end
-        if not GP and Input.KeyCode == Enum.KeyCode.Home then
-            getgenv().useTeamColor = not getgenv().useTeamColor
-        end
     end)
 end)
