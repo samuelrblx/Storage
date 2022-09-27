@@ -70,9 +70,9 @@ pcall(function()
                         end
                     end
                     if getgenv().distance then
-                        Name.Text = string.format("%s %s \n %s".. " %",  plr.Name, tostring(math.floor(Distance)), math.round(plr.Character:FindFirstChild("Humanoid").Health))
+                        Name.Text = string.format("%s %s \n %s",  plr.Name, tostring(math.floor(Distance)), math.round(plr.Character:FindFirstChild("Humanoid").Health))
                     else
-                        Name.Text = string.format("%s \n %s".. " %",  plr.Name, math.round(plr.Character:FindFirstChild("Humanoid").Health))
+                        Name.Text = string.format("%s \n %s",  plr.Name, math.round(plr.Character:FindFirstChild("Humanoid").Health))
                     end
                     if getgenv().outline then 
                         Name.Outline = true
