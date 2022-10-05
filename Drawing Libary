@@ -69,18 +69,10 @@ pcall(function()
                             Box.Color = getgenv().Color
                         end
                     end
-                    if getgenv().distance then
-                        Name.Text = string.format("%s %s \n %s",  plr.Name, tostring(math.floor(Distance)), math.round(plr.Character:FindFirstChild("Humanoid").Health))
-                    else
-                        Name.Text = string.format("%s \n %s",  plr.Name, math.round(plr.Character:FindFirstChild("Humanoid").Health))
-                    end
-                    if getgenv().outline then 
+                        Name.Text = string.format("%s", math.round(plr.Character:FindFirstChild("Humanoid").Health))
                         Name.Outline = true
-                    else 
-                        Name.Outline = false
-                    end
                         Name.Visible = true
-                        Name.Font = getgenv().FontValue
+                        Name.Font = 1
                     else
                         Name.Visible = false 
                     end
